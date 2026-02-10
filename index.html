@@ -123,9 +123,18 @@
         }
 
         @media (max-width: 600px) {
+            body {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+
             .container {
                 padding: 40px 25px;
                 border-radius: 20px;
+                width: 100%;
             }
 
             h1 {
