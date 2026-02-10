@@ -28,15 +28,15 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 30px;
-            padding: 60px 40px;
+            padding: 40px 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .profile-image {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            margin: 0 auto 30px;
+            margin: 0 auto 20px;
             overflow: hidden;
             border: 3px solid rgba(255, 255, 255, 0.5);
             background: rgba(255, 255, 255, 0.1);
@@ -55,16 +55,24 @@
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 12px;
             color: #fff;
             font-weight: 700;
             letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .flags-exponent {
+            font-size: 14px;
+            position: relative;
+            top: -8px;
+            margin-left: 4px;
         }
 
         .subtitle {
-            font-size: 18px;
-            margin-bottom: 15px;
+            font-size: 16px;
+            margin-bottom: 12px;
             color: rgba(255, 255, 255, 0.95);
             font-weight: 500;
         }
@@ -76,29 +84,29 @@
         }
 
         .description {
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.5;
             color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 10px;
+            margin-bottom: 0;
         }
 
         .link-btn {
             display: inline-block;
-            padding: 14px 36px;
+            padding: 11px 32px;
             background: rgba(255, 255, 255, 0.15);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
             text-decoration: none;
             color: #fff;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             backdrop-filter: blur(5px);
@@ -142,14 +150,14 @@
             <img src="apple-icon-precomposed.png" alt="Hannes Barbez">
         </div>
 
-        <h1>Hi, I'm Hannes</h1>
+        <h1>Hi, I'm Hannes<span class="flags-exponent"><span class="flag">🇧🇪</span><span class="flag">🇪🇺</span><span class="flag">🇸🇮</span></span></h1>
 
         <div class="subtitle">
-            <span class="flag">🇧🇪</span> Senior .NET Engineer/Architect in <span class="flag">🇸🇮</span><span class="flag">🇪🇺</span>
+            Senior .NET Engineer/Architect
         </div>
 
         <div class="description">
-            Experienced .NET architect (B.Sc.) specialized in scalable SaaS solutions. Available for project work—<a href="https://www.linkedin.com/in/hannesbarbez/" style="color: rgba(255, 255, 255, 0.95); text-decoration: underline;">get in touch on LinkedIn</a>.
+            Experienced B.Sc. specialized in scalable SaaS solutions.<br>Available for B2B project work—<a href="https://www.linkedin.com/in/hannesbarbez/" style="color: rgba(255, 255, 255, 0.95); text-decoration: underline;">get in touch on LinkedIn</a>.
         </div>
 
         <div class="links">
