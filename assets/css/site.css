@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1b4b 0%, #5b21b6 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 32px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 18px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.flags-exponent {
+    font-size: 14px;
+    position: relative;
+    top: -8px;
+    margin-left: 4px;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+}
+
+.subtitle .flag {
+    display: inline-block;
+    margin: 0 4px;
+    font-size: 20px;
+}
+
+.description {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.description-link {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: underline;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 0;
+}
+
+.meta-links {
+    margin-top: 22px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.meta-links a {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: underline;
+}
+
+.meta-links a:hover {
+    color: #fff;
+}
+
+.link-btn {
+    display: inline-block;
+    padding: 11px 32px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.link-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.vibrate {
+    animation: vibrate 0.35s linear;
+}
+
+.confetti-layer,
+.emoji-layer,
+.ripple-layer,
+.spark-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 999;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -20px;
+    width: 8px;
+    height: 14px;
+    opacity: 0.95;
+    border-radius: 2px;
+    animation-name: confetti-fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    transform: rotate(0deg);
+}
+
+.emoji-piece {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 22px;
+    animation-name: emoji-burst;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate(0, 0) scale(1);
+    will-change: transform, opacity;
+}
+
+.ripple-ring {
+    position: absolute;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+    animation-name: ripple-expand;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.85;
+}
+
+.spark-piece {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+    animation-name: spark-fly;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate(0, 0) rotate(0deg);
+    will-change: transform, opacity;
+}
+
+.tilt-bounce {
+    animation: tilt-bounce 0.6s ease;
+    transform-origin: center;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes emoji-burst {
+    0% {
+        transform: translate(0, 0) scale(0.9);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1.05);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-expand {
+    0% {
+        transform: translate(-50%, -50%) scale(0.25);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes spark-fly {
+    0% {
+        transform: translate(0, 0) rotate(var(--rot));
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) rotate(var(--rot));
+        opacity: 0;
+    }
+}
+
+@keyframes tilt-bounce {
+    0% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(-6px) rotate(-0.8deg); }
+    60% { transform: translateY(4px) rotate(0.6deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes vibrate {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 40px 25px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+}
